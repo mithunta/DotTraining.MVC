@@ -1,0 +1,33 @@
+﻿@model DotTraining.MVC.Models.AuthorBookViewModel 
+
+@{
+    ViewData["Title"] = "Home Page";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+
+
+<form method="post" asp-action="index" asp-controller="home">
+
+    Author name : <input type="text" name="author.authorname" id="authorname"  asp-for="Author.AuthorName" value="@Model.Author.AuthorName"/> <br />
+    Author Id : <input type="number" name="author.authorid" id="authorid" asp-for="Author.AuthorId" value="@Model.Author.AuthorId"/> <br />
+    Author Age : <input type="number" name="author.authorage" id="authorage" asp-for="Author.AuthorAge" value="@Model.Author.AuthorAge"/> <br />
+
+    Book Id : <input type="number" name="book.bookid" id="bookid" asp-for="Book.BookId" value="@Model.Book.BookId" /> <br />
+
+    Book  name: <input type="text" name="book.bookname" id="bookname" asp-for="Book.BookName" value="@Model.Book.BookName" /> <br />
+
+    <button type="submit">Submit</button>
+
+    <a asp-controller="authors" asp-action="index1" asp-route-id="10" asp-route-authorname="Mithun -Test">Go to Author Index Page</a>
+
+    <a asp-controller="authors" asp-action="TestMethod" asp-route-id="10" asp-route-authorname="Mithun -Test">Go to Author TestMethod Page</a>
+
+</form>
