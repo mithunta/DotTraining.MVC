@@ -1,9 +1,29 @@
-﻿
+﻿@model List<Author>
 @{
-    Layout = "~/Views/Shared/_Layout1.cshtml";
+
 }
 
-<h1>Authors - Index Page</h1>
-<p>Hello Author,</p>
-<br />
-<p>How are you.</p>
+<h1> List of Authors</h1> <br />
+
+<a asp-action="add" asp-controller="authors">Add New author</a>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Author Id</td>
+        <td>Author Name</td>
+        <td>Author Age</td>
+        <td></td>
+    </tr>
+    @foreach (Author author in Model)
+    {
+    <tr>
+        <td>@author.AuthorId</td>
+        <td>@author.AuthorName</td>
+        <td>@author.AuthorAge</td>
+        <td>
+            <a asp-action="edit" asp-controller="authors" asp-route-id="@author.AuthorId">Edit</a> &nbsp;
+            <a asp-action="delete" asp-controller="authors" asp-route-id="@author.AuthorId">Delete</a> &nbsp;
+        </td>
+    </tr>
+    }
+</table>

@@ -50,8 +50,9 @@ namespace DotTraining.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+               
                 ModelState.Clear();
-                //vm.Author.AuthorName = "Mithun - 1";
+                vm.Author.AuthorName = "Mithun - 1";
             }
             return View(vm);
         }

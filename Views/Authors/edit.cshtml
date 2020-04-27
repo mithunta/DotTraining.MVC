@@ -1,0 +1,14 @@
+﻿@model Author
+
+
+
+<h1>Edit Authors</h1>
+
+<form asp-controller="authors" asp-action="edit">
+    Author name : <input type="text" name="authorname" id="authorname" asp-for="AuthorName" /> <br />
+    Author Age : <input type="number" name="authorage" id="authorage" asp-for="AuthorAge" /> <br />
+
+    <input type="hidden" name="authorid" id="authorid" asp-for="AuthorId" />
+
+    <button type="submit">Submit</button>
+</form>

@@ -16,13 +16,13 @@
 
 <form method="post" asp-action="index" asp-controller="home">
 
-    Author name : <input type="text" name="author.authorname" id="authorname"  asp-for="Author.AuthorName" value="@Model.Author.AuthorName"/> <br />
-    Author Id : <input type="number" name="author.authorid" id="authorid" asp-for="Author.AuthorId" value="@Model.Author.AuthorId"/> <br />
-    Author Age : <input type="number" name="author.authorage" id="authorage" asp-for="Author.AuthorAge" value="@Model.Author.AuthorAge"/> <br />
+    Author name : <input type="text" name="author.authorname" id="authorname"  asp-for="Author.AuthorName" /> <br />
+    Author Id : <input type="number" name="author.authorid" id="authorid" asp-for="Author.AuthorId" /> <br />
+    Author Age : <input type="number" name="author.authorage" id="authorage" asp-for="Author.AuthorAge"/> <br />
 
-    Book Id : <input type="number" name="book.bookid" id="bookid" asp-for="Book.BookId" value="@Model.Book.BookId" /> <br />
+    Book Id : <input type="number" name="book.bookid" id="bookid" asp-for="Book.BookId"  /> <br />
 
-    Book  name: <input type="text" name="book.bookname" id="bookname" asp-for="Book.BookName" value="@Model.Book.BookName" /> <br />
+    Book  name: <input type="text" name="book.bookname" id="bookname" asp-for="Book.BookName"  /> <br />
 
     <button type="submit">Submit</button>
 

@@ -6,6 +6,7 @@ using DotTraining.MVC.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,8 +30,11 @@ namespace DotTraining.MVC
             //services.AddMvc();
 
             services.AddSingleton<ErrorViewModel, ErrorViewModel>();
-            services.AddScoped<ErrorViewModel, ErrorViewModel>();
-            services.AddTransient<ErrorViewModel, ErrorViewModel>();
+            services.AddDbContext<DotTrainingContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DotNetTrainingConnectionString"));
+            });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
