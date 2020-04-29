@@ -13,19 +13,37 @@ namespace DotTraining.MVC.Controllers
     {
 
         private readonly DotTrainingContext _context;
+        private readonly ILogger<AuthorsController> _logger;
         public AuthorsController(ILogger<AuthorsController> logger, DotTrainingContext context)
         {
             _context = context;
+            _logger = logger;
         }
         //CRUD
         //List all the authors that are in the database
         //R- Retrieve
         public IActionResult Index()
         {
-
-            List <Author> authors = _context.Authors.ToList();
-
+            List<Author> authors = new List<Author>();
+            try
+            {
+               authors = _context.Authors.ToList();
+                return View(authors);
+                
+            }
+            catch (Exception e)
+            {
+                ViewData["Error"] = "An occured while retrieving the data";
+                _logger.LogError(e.Message);
+                
+            }
+            finally
+            {
+                ViewData["Message"] = "Executed";
+            }
             return View(authors);
+            
+            
         }
 
 
